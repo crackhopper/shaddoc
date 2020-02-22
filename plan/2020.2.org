@@ -1,0 +1,68 @@
+
+* 摘要
+打算做一个pdf解析相关的项目。整体目标：（智能知识管家）
+- PDF相关模块：
+  - 解析
+  - 渲染
+  - 生成
+- UI相关模块：
+  - 普通的markdown编辑器
+  - 可以生成pdf
+  - 可以渲染pdf
+  - 可以从pdf中解析文本，反向生成markdown
+因为平时工作，所以每个周末抽时间来做。计划则按照每个月来做计划。
+* todo清单
+- [ ] 基于flex做一个markdown的tokenizer。
+- [ ] 鉴于flutter桌面还不好用，启一个electron的项目，简单做一下UI。
+  - [ ] 简单的编辑器。可以编辑markdown。
+  - [ ] 具备显示pdf的界面。同时用树的结构显示pdf的内容。
+  - [ ] 对markdown语法进行高亮。支持高亮配置。
+- [ ] 尝试基于flex做一个pdf的tokenizer；如果不行，则用C自己实现一个。
+- [ ] 博客
+  - [ ] cmake进阶
+    - [ ] 多个子项目
+    - [ ] 单元测试
+    - [ ] 自定义shell
+    - [ ] 打包和安装
+      - [ ] 版本号
+      - [ ] make
+      - [ ] deb
+      - [ ] dpkg
+    - [ ] 调试技巧
+  - [ ] 词法分析 lexer
+    - [ ] flex用法入门
+    - [ ] flex解析markdown
+  - [ ] 语法分析 bison
+    - [ ] bison用法入门
+    - [ ] flex+bison编写计算器
+    - [ ] bison编写markdown转html
+  - [ ] 代码生成
+    - [ ] mangle和demangle
+  - [ ] ELF格式
+    - [ ] section header
+    - [ ] symbol table
+    - [ ] relocation
+  - [ ] 动态库的编译
+    - [ ] LD_LIBRARY_PATH，-L，rpath，rpath-link
+** 2.15
+- [X] 用hexo整理一个blogger。
+  - [X] 搭建好
+  - [X] 支持toc
+** 2.16
+- [X] 用hexo整理一个blogger。
+  - [X] 支持评论
+- [X] CMake教程
+  - [X] 可执行文件
+  - [X] 静态库
+  - [X] 动态库
+  - [X] 自动查找
+  - [X] 第三方库
+** 2.22
+- [X] 用cmake组织项目。引入flex和bison
+- [ ] 用flex编写markdown的scanner
+- [ ] 用bison编写markdown转html
+- [ ] 文档：设计软件需求分析、系统架构
+- [ ] 项目：按照设计架构进行组织
+- [ ] 博客：编写hexo入门
+** 2.23
+** 2.29
