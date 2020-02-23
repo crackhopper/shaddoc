@@ -25,7 +25,7 @@ Headline* newHeadline(HeadlineType type, const char* _start){
     res->name = string(_start);
     rtrim(res->name);
     string stype;
-    if(res->type==H1) stype="h1";
+    if(res->type==HH1) stype="h1";
     else stype="h2";
     cout<<"new headline: "<< endl
         << "H: "<<stype << endl

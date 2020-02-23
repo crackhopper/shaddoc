@@ -4,8 +4,8 @@ extern "C" int yyparse();
 void yyerror(const char *s);
 #include <string>
 enum HeadlineType{
-    H1,
-    H2
+    HH1,
+    HH2
 };
 struct Headline{
     std::string name;
