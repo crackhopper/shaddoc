@@ -66,3 +66,42 @@
 - [ ] 博客：编写hexo入门
 ** 2.23
 ** 2.29
+** scratch
+*** markdown词法解析
+按照：https://www.runoob.com/markdown/md-tutorial.html 的文档格式进行markdown解析。
+
+预处理：
+1. 对所有的换行转化为\n  (done)
+2. 行末两个以上的空格，换成\n(done)
+3. 多个空格，换成一个空格 (done)
+4. 多个空行，换成一个\n (done)
+
+token：
+- 行内特殊符号： ~![`~
+- 行首特殊符号： ~(#|```|-|+|*|\d\. |>|\|)~
+- 转义字符识别
+- h1-h6 （开头标识、空格、标题、换行）
+- textblock （非特殊符号开头，结尾换行、行内特殊符号、行首的特殊符号）
+- splitline (~^(----*|\*\*\*\**)\n~ )
+- code (~^```(.*)\n{ANY}```$~ )
+- strong (~\*\*.*\*\*~)
+- italic (~\*.*\*~)
+- strong-italic (~\*\*\*.*\*\*\*~)
+- delete (\~\~.*\~\~)
+- quote (> .*\n with state level)
+- image (~!\[.*\]\(.*\)~ with image address, alt name)
+- link (~\[.*\]\(.*\)~ ~<.*>~ link name with link address)
+- ul (^((-|+|\*) |>* (-|+|\*)).*\n)
+- li (^(\d\. |>* \d\. .*\n)
+- tabhead (^\|( .* \|)+ ) (STATE:INITIAL->TABLE)
+- tabline (^\|( -+ \|)+)
+- tabrow (^\|( .* \|)+ )
+- newParagraph \n\n 
+
+语法分析：
+- 对textblock和inline的内容进行合并，形成paragraph
+- 对多个quote进行合并
+
+测试：
+- 搭建robot framework，对编译的结果进行测试。
+- 构造测试用例，进行测试。

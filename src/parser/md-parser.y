@@ -1,23 +1,28 @@
 %{
-#include <stdio.h>
-extern "C" int yylex();
-extern "C" int yyparse();
-void yyerror(const char *s){printf("error: %s",s);}
+#include "md-type.hpp"
 %}
-%token NUMBER EOL
-%left '+' '-'
-%left '*' '/'
+%start BODY
+%union {
+    struct Headline* h;
+    struct Block* b;
+    struct Text* t;
+}
+%token <h> HEADLINE 
+%token <t> TEXT
+%token <b> BLOCK
 
 %%
-cal :
-    | cal exp EOL {printf("=%d\n",$2);}
-;
-exp : NUMBER {$$=$1;}
-    | exp '+' exp {$$=$1+$3;}
-    | exp '-' exp {$$=$1-$3;}
-    | exp '*' exp {$$=$1*$3;}
-    | exp '/' exp {$$=$1/$3;}
-;
+CONTENT:
+    | BLOCK
+    | TEXT
+    | CONTENT BLOCK
+    | CONTENT TEXT
+    ;
+SECTION: HEADLINE CONTENT
+    ;
+BODY: CONTENT
+    | BODY SECTION
+    ;
 %%
 int main(){
     yyparse();
