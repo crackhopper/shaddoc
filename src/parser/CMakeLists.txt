@@ -5,10 +5,25 @@ find_package(BISON REQUIRED)
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
 # markdown parser
+
+# bison
 set(BISON_SRC "md-parser.y")
-BISON_TARGET(md_parser ${BISON_SRC} ${CMAKE_CURRENT_BINARY_DIR}/md-parser.cpp)
+BISON_TARGET(
+    md_parser 
+    ${BISON_SRC} 
+    ${CMAKE_CURRENT_BINARY_DIR}/md-parser.cpp
+    VERBOSE ${CMAKE_CURRENT_BINARY_DIR}/bison.log
+    COMPILE_FLAGS -Wconflicts-sr
+)
+
+# flex
 set(FLEX_SRC "md-scanner.l")
-FLEX_TARGET(md_scanner ${FLEX_SRC} ${CMAKE_CURRENT_BINARY_DIR}/md-scanner.cpp)
+FLEX_TARGET(
+    md_scanner 
+    ${FLEX_SRC} 
+    ${CMAKE_CURRENT_BINARY_DIR}/md-scanner.cpp
+    COMPILE_FLAGS
+)
 ADD_FLEX_BISON_DEPENDENCY(md_scanner md_parser)
 
 set(SRC 

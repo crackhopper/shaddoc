@@ -23,6 +23,29 @@ Backquote should be escaped: \`.
 - dd
  - dd
 
+
+    indented block
+    with continue block
+    - abc
+    - acb
+
 # test quote block and list
 
+
+| sex | wealth | loc|
+|-----|--------|----|
+| m   | 100    | 1  |
+| f   | 100    | 1  |
+
 end of markdown
+
+![img](./img.jpg)
+
+[link](http://link.com)
+
+
+```js
+function good(){console.log(good);}
+```
+
+should end block
